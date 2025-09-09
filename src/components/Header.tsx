@@ -4,6 +4,7 @@ import { ButtonLink } from "./ButtonLink";
 import { Logo } from "./Logo";
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
+import { CartCount } from "./CartCount";
 
 export async function Header() {
   const client = createClient();
@@ -33,9 +34,8 @@ export async function Header() {
           </ul>
         </nav>
         <div className="justify-self-end">
-          <ButtonLink href="" icon="cart" color="purple" aria-label="Cart (1)">
-            <span className="md:hidden">1</span>
-            <span className="hidden md:inline">Cart (1)</span>
+          <ButtonLink href="/cart" icon="cart" color="purple" aria-label="Cart">
+            <CartCount />
           </ButtonLink>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Bowlby_One_SC, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { SVGFilters } from "@/components/SVGFilters";
 import { createClient } from "@/prismicio";
+import { CartProvider } from "@/contexts/CartContext";
 
 const bowlby = Bowlby_One_SC({
   subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
       <body
         className={`${bowlby.variable} ${dmMono.variable} antialiased font-mono font-medium text-zinc-800`}
       >
-        <main>{children}</main>
+        <CartProvider>
+          <main>{children}</main>
+        </CartProvider>
         <SVGFilters />
       </body>
     </html>

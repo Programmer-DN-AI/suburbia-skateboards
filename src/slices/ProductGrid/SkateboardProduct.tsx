@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa6";
 
 import { createClient } from "@/prismicio";
 import { ButtonLink } from "@/components/ButtonLink";
+import { AddPremadeToCartButton } from "@/components/AddPremadeToCartButton";
 import { HorizontalLine, VerticalLine } from "@/components/Line";
 import clsx from "clsx";
 import { Scribble } from "./Scribble";
@@ -73,7 +74,17 @@ export async function SkateboardProduct({ id }: Props) {
       </h3>
 
       <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-        <ButtonLink field={product.data.customizer_link}>Customize</ButtonLink>
+        <div className="flex flex-col gap-2">
+          <ButtonLink field={product.data.customizer_link}>Customize</ButtonLink>
+          {isFilled.number(product.data.price) && (
+            <AddPremadeToCartButton
+              skateboardId={product.id}
+              name={product.data.name || "Skateboard"}
+              price={product.data.price}
+              image={product.data.image?.url}
+            />
+          )}
+        </div>
       </div>
     </div>
   );

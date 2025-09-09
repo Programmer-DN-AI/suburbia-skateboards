@@ -1,6 +1,6 @@
-import { ButtonLink } from "@/components/ButtonLink";
 import { Heading } from "@/components/Heading";
 import { Logo } from "@/components/Logo";
+import { AddToCartButton } from "@/components/AddToCartButton";
 import Link from "next/link";
 import React from "react";
 
@@ -73,9 +73,7 @@ export default async function Page(props: {
             metals={metals}
             className="mb-6"
           />
-          <ButtonLink href="" color="lime" icon="plus">
-            Add to cart
-          </ButtonLink>
+          <AddToCartButton />
         </div>
       </CustomizerControlsProvider>
       <Loading />
